@@ -38,7 +38,7 @@ jobs:
             - name: Run a multiline script
               run: 
                 echo Add other actions to build,
-                echo Test, and deploy your project.
+                test and deploy your project.
 
     build-api:
         runs-on: windows-latest
