@@ -1,0 +1,26 @@
+# .github/workflows/ui-ci.yml
+
+name: UI CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout UI Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Trigger Cypress Tests
+        uses: MemoGC/repository-dispatch@v1
+        with:
+            event-type: run-cypress-tests
+      # Add other build and deployment steps as needed
+
