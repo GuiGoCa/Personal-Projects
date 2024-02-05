@@ -9,6 +9,7 @@ on:
 
 jobs:
   ui-tests:
+    permissions: write-all
     runs-on: ubuntu-latest
 
     steps:
