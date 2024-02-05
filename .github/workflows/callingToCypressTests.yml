@@ -25,5 +25,6 @@ jobs:
             repository: GuiGoCa/Cypress-tst-automations
             token: ${{ secrets.GITHUB_TOKEN }}
             event-type: run-cypress-tests
+            client-payload: {}
       # Add other build and deployment steps as needed
 
