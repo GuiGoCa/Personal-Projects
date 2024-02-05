@@ -15,8 +15,8 @@ jobs:
       - name: Checkout UI Repository
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install --force
+    #   - name: Install Dependencies
+    #     run: npm install --force
         
       - name: Trigger Cypress Tests
         uses: peter-evans/repository-dispatch@v1
