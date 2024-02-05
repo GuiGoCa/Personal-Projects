@@ -19,7 +19,7 @@ jobs:
         run: npm install
         
       - name: Trigger Cypress Tests
-        uses: GuiGoCa/repository-dispatch@v1
+        uses: Cypress-tst-automations/repository-dispatch@v1
         with:
             event-type: run-cypress-tests
       # Add other build and deployment steps as needed
