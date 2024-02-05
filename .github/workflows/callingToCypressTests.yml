@@ -21,6 +21,8 @@ jobs:
       - name: Trigger Cypress Tests
         uses: peter-evans/repository-dispatch@v1
         with:
+            repository: GuiGoCa/Cypress
+            token: ${{ secrets.GITHUB_TOKEN }}
             event-type: run-cypress-tests
       # Add other build and deployment steps as needed
 
