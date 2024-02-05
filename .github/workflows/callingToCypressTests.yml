@@ -5,25 +5,40 @@ name: UI CI/CD
 on:
   push:
     branches:
-      - main
+      ["main"]
 
 jobs:
   ui-tests:
-    permissions: write-all
+    permissions:
+        id-token: write
+        contents: read
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout UI Repository
         uses: actions/checkout@v2
 
+
     #   - name: Install Dependencies
     #     run: npm install --force # No need to install in this project
         
       - name: Trigger Cypress Tests Ultimate
-        uses: peter-evans/repository-dispatch@v1
-        with:
-            repository: GuiGoCa/Cypress-tst-automations
-            token: ${{ secrets.GITHUB_TOKEN }}
-            event-type: run-cypress-tests
+        run: |
+            curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${{ secrets.CYPRESS_TEST_AUTOMATIONS }}" \
+            https://api.github.com/repos/GuiGoCa/Cypress-tst-automations/dispatches \
+            -d '{"event_type": "run-cypress-tests"}'    
+        
+
+
+
+
+
+        # uses: peter-evans/repository-dispatch@v1
+        # with:
+        #     repository: GuiGoCa/Cypress-tst-automations
+        #     token: ${{ secrets.GITHUB_TOKEN }}
+        #     event-type: run-cypress-tests
       # Add other build and deployment steps as needed
 
