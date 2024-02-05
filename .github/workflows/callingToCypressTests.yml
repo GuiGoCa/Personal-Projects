@@ -19,8 +19,10 @@ jobs:
         run: npm install
         
       - name: Trigger Cypress Tests
-        uses: Cypress-tst-automations/repository-dispatch@v1
+        uses: actions/checkout@v3
         with:
-            event-type: run-cypress-tests
+            repository: GuiGoCa/Cypress-tst-automations
+            path: ./my-e2e-tests
+            #event-type: run-cypress-tests
       # Add other build and deployment steps as needed
 
