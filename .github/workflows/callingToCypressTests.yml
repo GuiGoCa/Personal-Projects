@@ -9,10 +9,6 @@ on:
   
 jobs:
   e2e-tests:
-    
-    permissions:
-        id-token: write
-        contents: read
     runs-on: ubuntu-latest
 
     steps:
