@@ -1,44 +1,37 @@
 # .github/workflows/ui-ci.yml
 
-name: UI CI/CD
+name: CI E2E TEST
 
 on:
   push:
     branches:
       ["main"]
-
+  
 jobs:
-  ui-tests:
+  e2e-tests:
+    
     permissions:
         id-token: write
         contents: read
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout UI Repository
+      - name: Checkout e2e UI Repository
         uses: actions/checkout@v2
+        with: 
+          repository: GuiGoCa/Cypress-tst-automations
+          
+      - name: use node js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
 
+      - name: install dependencies
+        run: npm ci
 
-    #   - name: Install Dependencies
-    #     run: npm install --force # No need to install in this project
-        
-      - name: Trigger Cypress Tests Ultimate
-        run: |
-            curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: Bearer ${{secrets.GITHUB_TOKEN}}" \
-            https://api.github.com/repos/GuiGoCa/Cypress-tst-automations/dispatches \
-            -d '{"event_type": "run-cypress-tests"}'    
-        
+      - name: execute e2e ui tests
+        uses: cypress-io/github-actions@v2
+        with: 
+          browser: chrome
 
-
-
-
-
-        # uses: peter-evans/repository-dispatch@v1
-        # with:
-        #     repository: GuiGoCa/Cypress-tst-automations
-        #     token: ${{ secrets.GITHUB_TOKEN }}
-        #     event-type: run-cypress-tests
-      # Add other build and deployment steps as needed
 
