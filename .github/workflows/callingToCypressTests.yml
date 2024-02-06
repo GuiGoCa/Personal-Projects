@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: execute e2e ui tests
-        uses: cypress-io/github-actions@v2
+        uses: cypress-io/github-actions@v4
         with: 
           browser: chrome
 
