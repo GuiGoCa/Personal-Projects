@@ -17,8 +17,8 @@ jobs:
       - name: Checkout e2e UI Repository
         uses: actions/checkout@v2
         with: 
-          repository: GuiGoCa/Cypress-tst-automations
-          
+          repository: https://github.com/GuiGoCa/Cypress-tst-automations
+
       - name: use node js 18
         uses: actions/setup-node@v2
         with:
