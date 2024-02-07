@@ -15,10 +15,12 @@ jobs:
 
     steps:
       - name: Checkout e2e UI Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          repository: GuiGoCa/Cypress-tst-automations
         
       - name: use node js 18
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
 
@@ -26,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: execute e2e ui tests
-        uses: cypress-io/github-actions@v4
+        uses: cypress-io/github-actions@v6
         with: 
           browser: chrome
 
