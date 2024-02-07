@@ -19,13 +19,13 @@ jobs:
         with:
           repository: GuiGoCa/Cypress-tst-automations
         
-      - name: use node js 18
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
+      # - name: use node js 18
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 18.x
 
-      - name: install dependencies
-        run: npm ci
+      # - name: install dependencies
+      #   run: npm ci
 
       - name: execute e2e ui tests
         uses: cypress-io/github-actions@v6
