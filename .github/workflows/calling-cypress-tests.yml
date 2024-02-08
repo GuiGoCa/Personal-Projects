@@ -1,6 +1,7 @@
 # .github/workflows/ui-ci.yml
 
 name: CI Cypress E2E
+run-name: ${{ github.actor }} is uploading a test in another branch jeje
 
 on:
   push:
