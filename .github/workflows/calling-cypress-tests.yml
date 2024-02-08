@@ -1,6 +1,6 @@
 # .github/workflows/ui-ci.yml
 
-name: CI E2E TEST CALAMAR NAME
+name: CI Cypress E2E
 
 on:
   push:
