@@ -2,8 +2,9 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is pushing a change
 on:
   workflow_run:
-    workflows: [git-actions-workflow]
-    types: [completed]    
+    workflows: [CI Cypress E2E]
+    types: 
+        - completed    
 jobs:
   on-success:
     runs-on: ubuntu-latest
